@@ -6,5 +6,10 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function() {
+Router.map(function() { 
+  this.route('/');
+  this.route('partytypes');
+  this.route('bookparty');
+  // partytype/{type name} : takes party name as param; sending to partytype route
+  this.route('partytype', {path: '/partytype/:party'});
 });

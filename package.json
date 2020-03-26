@@ -24,8 +24,10 @@
     "@glimmer/component": "^1.0.0",
     "@glimmer/tracking": "^1.0.0",
     "babel-eslint": "^10.1.0",
+    "bootstrap": "^4.4.1",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.5.3",
+    "ember-bootstrap": "^3.1.2",
     "ember-cli": "~3.17.0",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.18.0",
@@ -43,6 +45,7 @@
     "ember-resolver": "^7.0.0",
     "ember-source": "~3.17.0",
     "ember-template-lint": "^2.4.0",
+    "ember-truth-helpers": "^2.1.0",
     "ember-welcome-page": "^4.0.0",
     "eslint": "^6.8.0",
     "eslint-plugin-ember": "^7.10.1",
@@ -56,5 +59,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "jquery-validation": "^1.19.1"
   }
 }

@@ -1,0 +1,62 @@
+ <div class="party-type">
+<h2> Book a {{@model.partyType}}</h2>
+<form id="book-form" class="book-form col-md-12">
+    <!-- installed ember-truth-helpers for checking key and display label and set type accordingly-->
+    <div class="row form-group">
+        <label for="attendees" class="col-md-3">Attendees *</label>
+        <input type="text" class="form-control col-md-5 pull-left" name="attendees" id="attendees" placeholder="Bob, Alex, Chris" valueBinding={{attendees}} required/>
+    </div>
+    {{#each-in @model as |key|}}
+        {{#if (eq key 'dessert')}}
+        <div class="row form-group ">
+            <label for="dessert" class="col-md-3">Dessert *</label>
+            <input type="text" class="form-control col-md-5 pull-left" name={{key}} id={{key}} valueBinding={{dessert}} required/>
+        </div> 
+        {{else if (eq key 'dinner')}}
+        <div class="row form-group">
+            <label for="dinner" class="col-md-3">Dinner *</label>
+            <input type="text" class="form-control col-md-5 pull-left" name={{key}} id={{key}} valueBinding={{dinner}} required/>
+        </div> 
+        {{else if (eq key 'water_temp')}}
+            <div class="row form-group">
+            <label for="water_temp" class="col-md-3">Water Temperature *</label>
+            <input type="number" min="0" class="form-control col-md-5 pull-left" name={{key}} id={{key}} valueBinding={{water_temp}} required/>
+        </div> 
+        {{else if (eq key 'movie')}}
+            <div class="row form-group">
+            <label for="movie" class="col-md-3">Movie *</label>
+            <input type="text" class="form-control col-md-5 pull-left" name={{key}} id={{key}} valueBinding={{movie}} required/>
+        </div> 
+        {{else if (eq key 'rating')}}
+            <div class="row form-group rating">
+            <label for="rating" class="col-md-3">Rating *</label>
+            
+                <input type="radio" class="" name="ratg" id="rating1" value="G" required/><label for="rating1">G</label>
+                <input type="radio" class="" name="ratg" id="rating2" value="PG" required/><label for="rating2">PG</label>
+                <input type="radio" class="" name="ratg" id="rating3" value="PG-13" required/><label for="rating3">PG-13</label>
+                <input type="radio" class="" name="ratg" id="rating4" value="R" required/><label for="rating4">R</label>
+                <input type="radio" class="" name="ratg" id="rating5" value="NC-17" required/><label for="rating5">NC-17</label>
+           
+        </div> 
+        {{else if (eq key 'runtime')}}
+            <div class="row form-group">
+            <label for="runtime" class="col-md-3">Run Time *</label>
+            <input type="number" min="30" class="form-control col-md-5 pull-left" name={{key}} id={{key}} valueBinding={{runtime}} required/>
+        </div> 
+        {{/if}}
+    {{/each-in}}
+    <div class="row form-group">
+        <label for="start_time" class="col-md-3">Start time *</label>
+        <input type="date" class="form-control col-md-5 pull-left" name="start_time" id="start_time" valueBinding={{start_time}} required/>
+    </div>
+  
+    <div class="row form-group">
+        <label for="end_time" class="col-md-3">End time *</label>
+        <input type="date" class="form-control col-md-5 pull-left" name="end_time" id="end_time" valueBinding={{end_time}} required/>
+    </div> 
+    <div class="col-md-8 text-right btn-actions">
+        <LinkTo @route="/" >Cancel</LinkTo>
+        <button class="btn btn-primary col-md-2 btn-book" {{on "click" this.bookParty}}>Book</button>
+    </div>
+</form>
+ </div>

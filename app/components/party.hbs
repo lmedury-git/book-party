@@ -1,0 +1,5 @@
+ <div class="row">
+    {{#each @model as |party|}}
+        <LinkTo @route="partytype" @model={{party}} class="col-md-3 party"><div>{{ party }}</div></LinkTo>
+    {{/each}}
+</div>

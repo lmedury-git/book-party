@@ -1,0 +1,62 @@
+body {
+    color: #000;
+    background: #dde4ee;
+}
+.container {
+    max-width: 1020px;
+    padding: 0;
+   
+}
+.navbar {
+    background: #e04e39;
+}
+a.navbar-brand {
+    color: #fff;
+    font-size: 30px;
+}
+.alert-success {
+    margin-top: 20px;
+    visibility: hidden;
+}
+h2 {
+    font-size: 1.5rem;
+}
+.party {
+    font-size: 20px;
+    line-height: 200px;
+    text-align: center;
+    height: 200px; 
+    background: #fff;
+    margin: 25px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.party-type {
+    background: #fff;
+    padding: 30px;
+}
+.book-form {
+    margin-top: 20px;
+}
+.book-form label {
+    text-align: right; 
+    margin-top: 5px;
+}
+.btn-book {
+    margin: 0 -20px 0 20px;
+}
+.rating label {
+    margin-right: 24px;
+}
+.rating input {
+    margin-top: 8px;
+    margin-right: 10px;
+}
+.error-text {
+    color: #D8000C;
+    margin-top: 5px;
+    font-size: 13px;
+}
+.error {
+    border-color: #D8000C;
+}
