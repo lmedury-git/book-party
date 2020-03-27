@@ -13,9 +13,9 @@ You will need the following things properly installed on your computer.
 * [Google Chrome](https://google.com/chrome/)
 
 ## Installation
-git clone https://github.com/lmedury-git/book-party.git
-cd book-party
-npm install
+* git clone https://github.com/lmedury-git/book-party.git
+* cd book-party
+* npm install
 
 ## Running / Development
 
