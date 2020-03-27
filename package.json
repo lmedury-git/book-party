@@ -61,6 +61,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "ember": "octane",
     "jquery-validation": "^1.19.1"
   }
 }
