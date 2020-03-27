@@ -59,7 +59,7 @@ export default class PartytypeController extends Controller {
         partyObj.start_time = new Date(partyObj.start_time).toISOString();
         partyObj.end_time = new Date(partyObj.end_time).toISOString();
         // POST
-        const url = config.partyApiUrl + 'bookparty';
+        const url = config.partyApiUrl + 'bookpartyprod';
         const party = { 
             party_type: partyType,
             data: partyObj
