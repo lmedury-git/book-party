@@ -41,14 +41,16 @@ export default class PartytypeController extends Controller {
         });
     }  
     
-    submitForm(partyObj) {
-       
-        var partyType = partyObj.partyType;
-        delete partyObj.partyType;
-        Object.keys(partyObj).forEach(function(k){
-            partyObj[k] = (k == "rating" ? $('input[name="ratg"]:checked').val() : document.getElementById(k).value); // set data object with form inputs
-        });
-        // prepare data 
+    submitForm(partyObj) { 
+        
+        var keys = Object.keys(partyObj);
+        var total = keys.length - 1; // need to ignore partyObj.partyType from Router as it is not part of inputs
+        
+        // gather form data inputs and prepare data 
+        for(let i = 0; i < total; i++) {
+            partyObj[keys[i]] = (keys[i] == "rating" ? $('input[name="ratg"]:checked').val() : document.getElementById(keys[i]).value); // set data object with form inputs
+        };
+        
         if(partyObj.water_temp) {
             partyObj.water_temp = parseInt(partyObj.water_temp);
         }
@@ -58,13 +60,14 @@ export default class PartytypeController extends Controller {
         partyObj.attendees = (document.getElementById('attendees').value).split(',');
         partyObj.start_time = new Date(partyObj.start_time).toISOString();
         partyObj.end_time = new Date(partyObj.end_time).toISOString();
+       
         // POST
         const url = config.partyApiUrl + 'bookpartyprod';
         const party = { 
-            party_type: partyType,
+            party_type: partyObj.partyType,
             data: partyObj
         }; 
-      
+       
         fetch(url, {
             method: 'POST',
             headers: {
@@ -73,16 +76,14 @@ export default class PartytypeController extends Controller {
             body: JSON.stringify(party),
             dataType: 'json'
         })
-        .then(function (data) { 
-            // returns UUID - use this to display success message; return to main page
-            return data; 
-        })
-        .then( (data) => { 
-            // route to homepage
-           if(data.status == '200') {
-                var self = this;
-                self.transitionToRoute('partytypes');
-            }
+        .then( (data) => {  
+           if(data.status == '500') {
+                // Random Prod Failure ; todo : display failure message
+            } 
+            // for now route to home page 
+            var self = this;
+            this.transitionToRoute('/');
+            //todo: display success message based on UUID
         });
     }
     
@@ -90,8 +91,10 @@ export default class PartytypeController extends Controller {
     bookParty(e) {
         e.preventDefault();
         const partyObj = this.get('model');
+
         // validate form
-        this.check();
+        this.check(partyObj);
+
         //submit if valid
         if($("#book-form").valid()) {
             this.submitForm(partyObj);
