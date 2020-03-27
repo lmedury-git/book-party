@@ -57,11 +57,7 @@
   "engines": {
     "node": "10.* || >= 12"
   },
-  "ember": {
-    "edition": "octane"
-  },
   "dependencies": {
-    "ember": "octane",
     "jquery-validation": "^1.19.1"
   }
 }
