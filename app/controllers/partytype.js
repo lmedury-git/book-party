@@ -62,7 +62,7 @@ export default class PartytypeController extends Controller {
         partyObj.end_time = new Date(partyObj.end_time).toISOString();
        
         // POST
-        const url = 'http://frontend-api-exercise.herokuapp.com/bookpartyprod';
+        const url = config.partyApiUrl + '/bookpartyprod';
         const party = { 
             party_type: partyObj.partyType,
             data: partyObj
