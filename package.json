@@ -58,6 +58,7 @@
     "node": "10.* || >= 12"
   },
   "dependencies": {
-    "jquery-validation": "^1.19.1"
+    "jquery-validation": "^1.19.1",
+    "ember-cli": "~3.17.0"
   }
 }
